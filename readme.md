@@ -1,5 +1,25 @@
 This time, we'll make a basic multiplayer "Collect the Coins" game where players move around and collect coins that appear on the canvas. The player with the most collected coins wins.
 
+```mermaid
+graph TD
+    A[User] -->|Connects to| B[Client]
+    B -->|Sends/Receives Data| C[Game Server]
+    C -->|Updates State| D[Database]
+    C -->|Sends Updates| B
+    C -->|Handles Real-time Communication| E[WebSocket]
+
+    subgraph Game Flow
+        B
+        C
+        E
+    end
+
+    subgraph Data Management
+        D
+    end
+
+```
+
 1. Project Setup
 Initialize the Project:
 
